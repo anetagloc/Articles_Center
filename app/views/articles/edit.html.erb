@@ -1,0 +1,25 @@
+<div class="flex justify-center items-center py-4 mx-auto w-full">
+    <div class="w-full">
+        <h1 class="text-6xl uppercase">Editing <p class="text-darkgreen ml-12">article</p></h1>
+        <div class="py-3">
+            <% if @article.image.attached? && @article.image.persisted? %>
+                <p class="text-md font-bold">Picture</p>
+                <%= image_tag @article.image.variant(resize_to_fit: [500, 500]) %>
+            <% else %>
+                <p>Obrazek nie został załączony</p>
+            <% end %>
+        </div>
+        <div>
+            <%= render "form", article: @article %>
+            <button class="bg-red font-bold p-2 rounded-full">
+                <%= link_to "Delete this article", article_path(@article), data: {
+                turbo_method: :delete,
+                turbo_confirm: "Are you sure you want to delete the article?"
+                } %>
+            </button>
+            <button class="bg-darkgreen text-white font-bold p-2 rounded-full">
+                <%= link_to 'Back to Articles', articles_path %>
+            </button>
+        </div>
+    </div>
+</div>

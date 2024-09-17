@@ -1,0 +1,74 @@
+
+<div class="container m-auto p-4">
+  <div class="flex flex-col items-center text-8xl text-left uppercase">
+    <p>your</p>
+    <p>best place for</p>
+    <p class="text-darkgreen">articles</p>
+  </div>
+  <div class="flex flex-col text-right m-20">
+    <p class="text-xl  text-darkgreen">about</p>
+    <p class="text-3xl ">Articles Center is a place to create, update and share your creative articles.</p>
+  </div>
+  <div>
+  <section id="articles">
+      <h2 class="text-8xl text-left text-darkgreen uppercase tracking-widest">Articles</h2>
+      <h2 class="text-8xl text-left uppercase ml-80 tracking-widest">list</h2>
+      <button>
+          <%= link_to 'Add new Article', new_article_path, class: "w-full bg-darkgreen text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-base font-medium hover:bg-bermuda focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bermuda" %>
+      </button>
+
+      <div class="w-full border my-5">
+          <% @articles.each do |article| %>
+            <%= render partial: "article", locals: { article: article } %>
+            <%= content_tag :hr %>
+          <% end %>
+      </div>
+    </div>
+    <div>
+  </section>
+  <section id="faq">
+    <h2 class="text-8xl text-left uppercase tracking-widest">Frequently</h2>
+    <h2 class="text-8xl text-left text-darkgreen uppercase ml-72 tracking-widest">asked</h2>
+    <h2 class="text-8xl text-left uppercase ml-80 tracking-widest">QUESTIONS</h2>
+    <div class="mb-20 text-2xl py-2">
+    <%= accordion class: "rounded-xl overflow-auto" do %>
+      <%= accordion_item do |item| %>
+        <% item.header do %>
+          <p>1. How add article?</p>
+        <% end %>
+        <% item.body do %>
+          <p>Here is the content of the accordion item.</p>
+        <% end %>
+      <% end %>
+      <%= accordion_item do |item| %>
+        <% item.header do %>
+          <p>2. How edit article?</p>
+        <% end %>
+        <% item.body do %>
+          <p>Here is the content of the accordion item.</p>
+        <% end %>
+      <% end %>
+      <%= accordion_item do |item| %>
+        <% item.header do %>
+          <p>3. How delete article?</p>
+        <% end %>
+        <% item.body do %>
+          <p>Here is the content of the accordion item.</p>
+        <% end %>
+      <% end %>
+      <%= accordion_item do |item| %>
+        <% item.header do %>
+          <p>4. Do you have any questions?</p>
+        <% end %>
+        <% item.body do %>
+          <p>Here is the content of the accordion item.</p>
+        <% end %>
+      <% end %>
+    <% end %> 
+    </div>
+  </div>
+  </section>
+  <div class="text-center mt-20">
+    <p class="text-l ">2024 Create by Brisi</p>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Articles Center</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <div class="container m-auto p-4">
+      <header class="bg-white">
+        <div>
+          <p class="notice bg-green"><%= notice %></p>
+          <p class="alert bg-red"><%= alert %></p>
+        </div>
+        <nav class="p-4 flex items-center justify-between">
+        <div class="flex items-center">
+          <%= link_to root_path do %>
+            <%= image_tag 'logo_article.png', alt: 'My Logo', class: "h-8" %>
+          <% end %>
+        </div>
+        <div class="flex items-center space-x-4">
+          <%= link_to 'HOME', root_path, class: "font-bold text-lg" %>
+          <%= link_to 'ARTICLES', '#articles', class: "font-bold text-lg" %>
+          <%= link_to 'FAQ', '#faq', class: "font-bold text-lg" %>
+          <% if user_signed_in? %>
+              <%= form_with url: destroy_user_session_path, method: :delete, class: "inline" do %>
+                <%= submit_tag 'Sign out', style: "width: 100%; background-color: #3C887E; color: #fff; padding: 0.5rem 1rem; border-radius: 9999px; cursor:pointer; text-transform:uppercase"%>
+              <% end %>
+            <% else %>
+              <%= link_to 'LOG IN', new_user_session_path, class: "text-white bg-darkgreen px-4 py-3 font-bold rounded-full hover:bg-bermuda"%> 
+              <%= link_to 'SIGN UP', new_user_registration_path, class: "text-white bg-darkgreen px-4 py-3 font-bold rounded-full hover:bg-bermuda"%>
+            <% end %>
+        </div>
+      </nav>
+      
+    </header>
+    <main class="container mx-auto mt-28 px-5 flex">
+      <%= yield %>
+      <%= rails_accordion_assets %>
+    </main>
+    </div>
+  </body>
+</html>

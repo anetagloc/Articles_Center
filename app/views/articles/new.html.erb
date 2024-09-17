@@ -1,0 +1,7 @@
+<div class="container">
+    <h1 class="text-6xl uppercase">New <p class="text-darkgreen ml-12">article</p></h1>
+    <%= render "form", article: @article %>
+    <button class="bg-darkgreen text-white font-bold p-2 rounded-full">
+        <%= link_to 'Back to Articles', articles_path %>
+    </button>
+</div>

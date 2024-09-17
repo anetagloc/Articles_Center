@@ -1,0 +1,35 @@
+<div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+  <h2 class="text-5xl font-bold text-center mb-8 text-darkgreen uppercase">Log in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-6" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.label :email, class: "block text-sm font-medium text-stone" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-2 block w-full border border-grey rounded-md shadow-sm focus:border-bermuda focus:ring-bermuda sm:text-sm" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, class: "block text-sm font-medium text-stone" %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "mt-2 block w-full border border-grey rounded-md shadow-sm focus:border-bermuda focus:ring-bermuda sm:text-sm" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field flex items-center">
+        <%= f.check_box :remember_me, class: "h-4 w-4 text-bermuda focus:ring-bermuda border-grey rounded" %>
+        <%= f.label :remember_me, class: "ml-2 block text-sm text-slate" %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in", style: "width: 100%; background-color: #3C887E; color: #fff; padding: 0.5rem 1rem; border-radius: 9999px; cursor:pointer; text-transform:uppercase" %>
+    </div>
+    <% end %>
+
+  
+  <div class="mt-6 text-center py-2">
+  <p class="mt-6 text-center text-stone py-5">Don't have an account?</p>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
