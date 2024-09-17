@@ -13,9 +13,9 @@ cd your-repository
 
 Make sure you have the following software installed:
 
-Ruby 3.3.3 (used by this project)
-Bundler
-PostgreSQL (or any other database you're using)
+- Ruby 3.3.3 (used by this project)
+- Bundler
+- PostgreSQL (or any other database you're using)
 
 ### 3. **Install dependencies**
 
@@ -58,7 +58,7 @@ rails db:create
 rails db:migrate
 ```
 
-### 5. **Finally! Run the server**
+### 5. **Run the server**
 
 Start the Rails server:
 ```bash
